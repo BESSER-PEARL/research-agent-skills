@@ -6,12 +6,26 @@ An AI agent skill for systematic academic paper review.
 
 When you share a research paper (PDF, LaTeX, or plain text), this skill guides the agent through a structured review process:
 
-1. **Venue context** — Adapts the review to the target conference/journal standards
+1. **Venue & paper-type context** — Adapts the review to the target conference/journal standards **and to the type of paper** so the criteria match what the submission actually requires
 2. **Structured summary** — Problem, contributions, methodology, results, limitations
 3. **Numerical & consistency checks** — Cross-references numbers across text, tables, and figures; verifies statistics, acronyms, terminology, and citations
-4. **Critical analysis** — Evaluates novelty, soundness, significance, clarity, reproducibility, and venue alignment
+4. **Critical analysis** — Evaluates novelty, soundness, significance, clarity, reproducibility, and venue alignment, weighted by paper type
 5. **Actionable feedback** — Strengths, weaknesses, questions, minor issues, and venue-specific recommendations
 6. **Top 10 actions** — Prioritized by impact-to-effort ratio so authors know where to start
+
+## Paper Types
+
+The review criteria change substantially by paper type, so it's best to state the type when you ask for a review. The skill will ask if you don't. It calibrates expectations accordingly — for example, it **won't** fault a *tool demo* paper for lacking a real-world validation study, or a *vision* paper for lacking large-scale experiments.
+
+| Paper type | Evaluation focus | Validation expected |
+|-----------|------------------|---------------------|
+| **Full research / journal (extended)** | Novelty, soundness, significance, completeness | Strong, thorough validation; complete related work; reproducibility |
+| **Short paper** | A single focused, sound contribution | Preliminary but credible; scope intentionally narrow |
+| **New ideas / vision paper** | Novelty, potential impact, clarity of the idea | Conceptual argument or early evidence; full validation not required |
+| **Tool demo paper** | Usefulness, maturity, architecture, availability, demo scenario | Demonstration that the tool works; strong empirical/user validation **not** required |
+| **Poster / extended abstract** | Clarity of the idea and early-stage promise | Minimal; preliminary results at most |
+
+Venue-specific guidelines, when available, override these defaults.
 
 ## Installation
 

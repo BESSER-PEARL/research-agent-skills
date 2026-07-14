@@ -23,8 +23,8 @@ Assist researchers in reviewing, analyzing, and criticizing academic papers syst
 - Paper content: PDF, LaTeX source, or plaint text
 - Target Venue (optional but recommended): conference, journal, or preprint target
                - Example: "Models 2026", "TOSEM", "Sosym", "arXiv preprint"
-- Type of paper (optional but recommended): "full research" paper, "short" paper, "new ideas" paper, "tool demo", "poster",...
-- Explicit reviewing guidelines (optinoal): if available provide a description or URL with the reviewing criteria.
+- Type of paper (**important — ask the user if not provided**): the review criteria change substantially by type. Common types: "full research" paper, "short" paper, "new ideas"/vision paper, "tool demo" paper, "poster", "extended abstract"/"short abstract", "journal"/"extended" paper. If the user does not state the type, ask before reviewing (or state the assumed type explicitly in the review).
+- Explicit reviewing guidelines (optional): if available provide a description or URL with the reviewing criteria.
 
 ## Review Workflow
 
@@ -34,7 +34,19 @@ Assist researchers in reviewing, analyzing, and criticizing academic papers syst
 
 > “Review this paper as if it is intended for [TARGET VENUE] as a [TYPE PAPER] submission. Consider typical standards, expectations, page limits, scope, and audience for this venue and type of paper”
 
-- Optional: Use the provided reviewing guidelines or try to find them on the venue website (if available) with standards for methodology, novelty, empirical rigor, validation and formatting. 
+- **Calibrate expectations to the paper type.** Do not apply full-paper standards to every submission. In particular, do not fault a paper for missing something its type does not require (e.g., do **not** criticize a tool demo paper for lacking a real-world validation study, or a vision paper for lacking large-scale experiments). Use the table below as the baseline, then adjust with the venue's own guidelines:
+
+| Paper type | Primary evaluation focus | Validation expected | Common pitfalls to flag / *not* flag |
+|-----------|--------------------------|---------------------|--------------------------------------|
+| **Full research / journal (extended)** | Novelty, soundness, significance, completeness | Strong, thorough empirical or theoretical validation; complete related work; reproducibility | Flag weak/absent validation, thin related work, non-reproducible results |
+| **Short paper** | A single focused, sound contribution | Preliminary but credible validation; scope intentionally narrow | Flag if the core claim is unsupported; do *not* flag limited scope or lack of exhaustive experiments |
+| **New ideas / vision paper** | Novelty, potential impact, clarity of the idea | Conceptual argument or early evidence; full validation not required | Flag vague or unmotivated ideas; do *not* flag absence of experiments |
+| **Tool demo paper** | Usefulness, maturity, architecture, availability, a clear demo scenario | Demonstration of the tool working; strong empirical/user validation is **not** required | Flag unclear tool value, no availability/reproducibility of the tool, missing demo walkthrough; do *not* flag lack of a real-world evaluation study |
+| **Poster / extended abstract / short abstract** | Clarity of the idea and early-stage promise | Minimal; preliminary results at most | Flag unclear framing; do *not* flag limited depth, short related work, or minimal evaluation |
+
+- If the paper type is unknown, ask the user (or state the assumption you are reviewing under) before applying validation criteria.
+
+- Optional: Use the provided reviewing guidelines or try to find them on the venue website (if available) with standards for methodology, novelty, empirical rigor, validation and formatting. Venue-specific guidelines override the defaults above. 
 
 ### Step 1: Read the Paper
 
@@ -73,7 +85,7 @@ Even minor errors (typos, broken references, wrong numbering) matter. reviewers 
 
 ### Step 4: Critical Analysis
 
-Evaluate the paper on these dimensions:
+Evaluate the paper on these dimensions, **weighting them according to the paper type** (see the calibration table in Step 0). For example, weight *Reproducibility* and *Soundness* heavily for a full/journal paper, but weight *Significance* (tool usefulness, availability, demo clarity) more than exhaustive *Soundness* for a tool demo, and *Novelty*/*Clarity* over *Soundness* for a vision paper. When a dimension is not applicable to the paper type, say so explicitly rather than penalizing the paper for it.
 
 | Dimension | Questions to Answer |
 |-----------|-------------------|
