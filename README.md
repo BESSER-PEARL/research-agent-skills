@@ -1,5 +1,7 @@
 # BESSER Agent Skills for Research
 
+> ⭐ **Part of [BESSER](https://github.com/BESSER-PEARL/BESSER)**, the open-source low-code platform that turns models into working apps. If this project is useful to you, please [star the main repo](https://github.com/BESSER-PEARL/BESSER) too.
+
 A collection of AI agent skills to help in your research activities. Developed by [BESSER-PEARL](https://github.com/BESSER-PEARL), the team behind the open-source low-code platform of the same name hosted at the Luxembourg Institute of Science and Technology (LIST).
 
 These skills work with **any AI assistant**:
